@@ -1,0 +1,133 @@
+@use '../../styles/utils/breakpoint' as *;
+
+.header {
+  background-color: var(--main-grey);
+  padding-right: 1em;
+
+  @include breakpoint('medium') {
+    padding-right: 5em;
+  }
+
+  &__bars-container {
+    text-align: right;
+  }
+
+  &__bars {
+    padding: 1rem 0;
+    color: var(--white-two);
+    font-size: 1.5em;
+    display: inline-block;
+
+    @include breakpoint('medium') {
+      display: none;
+    }
+  }
+
+  &__links {
+    text-align: center;
+    list-style: none;
+    color: var(--white-two);
+    overflow: hidden;
+    height: 0;
+
+    @include breakpoint('medium') {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: initial;
+      padding: 0;
+    }
+
+    &--visible {
+      padding: 1em;
+      height: auto;
+      overflow: visible;
+    }
+
+    li:not(:last-child) {
+      padding: 0.5em 0;
+
+      @include breakpoint('medium') {
+        margin-right: 3em;
+        padding: 0;
+      }
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: var(--gold);
+    padding: 1.5em 1em;
+    display: inline-block;
+  }
+
+  &__caret-down {
+    transform: rotate(180deg);
+  }
+
+  &__dropdown:hover &__dropdown-content {
+    display: block;
+  }
+
+  &__dropdown:hover &__caret-down {
+    transform: rotate(0deg);
+  }
+
+  &__dropdown-text {
+    margin-right: 2em;
+    margin-left: 1em;
+  }
+
+  &__dropdown-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(0, calc(100% + 1em));
+    width: 100%;
+    z-index: 1;
+    display: none;
+    background-color: var(--white-two);
+    color: var(--main-grey);
+    box-shadow: 0 0 2px -1px rgba($color: #000000, $alpha: 1);
+    padding: 0 1em;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: initial;
+
+    div {
+      padding: 0.5em 0;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #b2b2b2;
+      }
+
+      &:last-child {
+        color: var(--gold);
+        font-weight: 600;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      aspect-ratio: 1;
+      top: 0;
+      right: 0;
+      transform: translate(-1em, -50%) rotate(45deg);
+      box-shadow: inherit;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 1em;
+      transform: translateY(-100%);
+      width: 100%;
+    }
+  }
+}
