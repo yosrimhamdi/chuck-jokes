@@ -1,0 +1,16 @@
+.button {
+  display: block;
+  border: none;
+  background: none;
+  color: var(--gold);
+  font-size: 0.95rem;
+  cursor: pointer;
+
+  &:hover &__arrow-icon {
+    transform: translateX(4px);
+  }
+
+  &__arrow-icon {
+    transition: transform 100ms;
+  }
+}

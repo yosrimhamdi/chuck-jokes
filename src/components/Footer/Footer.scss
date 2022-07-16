@@ -1,0 +1,27 @@
+@use '../../styles/utils/breakpoint' as *;
+
+.footer {
+  background-image: url('./footer.png');
+  background-size: cover;
+
+  &__content {
+    margin: 0 auto;
+    padding: 4em 1em;
+    color: var(--white-two);
+
+    @include breakpoint('medium') {
+      padding-right: 0;
+      padding-left: 0;
+      width: 90%;
+    }
+
+    @include breakpoint('large') {
+      width: 80%;
+    }
+  }
+
+  &__text {
+    width: 25%;
+    margin-bottom: 1em;
+  }
+}

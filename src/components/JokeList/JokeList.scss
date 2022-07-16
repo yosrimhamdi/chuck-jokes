@@ -44,22 +44,4 @@
   &__content {
     margin-bottom: 2em;
   }
-
-  &__button {
-    display: block;
-    margin-left: auto;
-    border: none;
-    background: none;
-    color: var(--gold);
-    font-size: 0.95rem;
-    cursor: pointer;
-  }
-
-  &__arrow-icon {
-    transition: transform 100ms;
-  }
-
-  &__button:hover &__arrow-icon {
-    transform: translateX(4px);
-  }
 }

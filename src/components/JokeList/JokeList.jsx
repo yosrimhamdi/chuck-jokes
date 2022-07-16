@@ -26,9 +26,9 @@ const JokeList = () => {
           JOKE
         </div>
         <p className="joke__content">{joke}</p>
-        <button className="joke__button">
+        <button className="button">
           SEE STATS{' '}
-          <FontAwesomeIcon className="joke__arrow-icon" icon={faArrowRight} />
+          <FontAwesomeIcon className="button__arrow-icon" icon={faArrowRight} />
         </button>
       </div>
     );
