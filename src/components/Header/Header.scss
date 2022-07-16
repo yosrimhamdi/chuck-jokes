@@ -46,12 +46,17 @@
       text-align: initial;
       height: auto;
       padding: 0;
+      overflow: visible;
     }
 
     &--visible {
       padding: 1em;
       height: auto;
       overflow: visible;
+    }
+
+    li {
+      cursor: pointer;
     }
 
     li:not(:last-child) {
@@ -67,7 +72,6 @@
   &__dropdown {
     position: relative;
     display: inline-block;
-    cursor: pointer;
     background-color: var(--gold);
     padding: 1.5em 1em;
     display: inline-block;

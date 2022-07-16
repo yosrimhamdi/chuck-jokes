@@ -9,10 +9,10 @@ const Footer = () => {
     <div className="footer">
       <div className="footer__content">
         <p className="footer__text">GOT JOKES? GET PAID FOR SUBMITTING</p>
-        <button className="button">
+        <a href="#0" className="button">
           SUBMIT JOKE{' '}
           <FontAwesomeIcon className="button__arrow-icon" icon={faArrowRight} />
-        </button>
+        </a>
       </div>
     </div>
   );

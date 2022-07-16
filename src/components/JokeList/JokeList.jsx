@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faBolt } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,10 +27,15 @@ const JokeList = () => {
           JOKE
         </div>
         <p className="joke__content">{joke}</p>
-        <button className="button">
-          SEE STATS{' '}
-          <FontAwesomeIcon className="button__arrow-icon" icon={faArrowRight} />
-        </button>
+        <div className="joke__button-wrapper">
+          <Link className="button" to={`/joke/${i + 1}`}>
+            SEE STATS{' '}
+            <FontAwesomeIcon
+              className="button__arrow-icon"
+              icon={faArrowRight}
+            />
+          </Link>
+        </div>
       </div>
     );
   });
