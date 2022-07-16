@@ -1,0 +1,50 @@
+@use '../../styles/utils/breakpoint' as *;
+
+.hero {
+  background-image: url('./hero.png');
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  padding: 5em 1em;
+  text-align: center;
+
+  &__title {
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 2.5rem;
+
+    @include breakpoint('medium') {
+      font-size: 4rem;
+    }
+  }
+
+  &__sub-title {
+    color: var(--white-two);
+    font-weight: 500;
+    margin-bottom: 2.5em;
+  }
+
+  &__input-container {
+    position: relative;
+  }
+
+  &__search-input {
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 4px;
+    width: 100%;
+    padding: 1em;
+    outline: none;
+    color: white;
+    font-size: 1rem;
+  }
+
+  &__magnifier {
+    color: grey;
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
+  }
+}
