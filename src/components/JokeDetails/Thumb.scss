@@ -1,0 +1,46 @@
+.thumb-container {
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  color: var(--green-thumb);
+  margin-right: 1em;
+
+  &:hover {
+    color: var(--green-thumb-hover);
+
+    .thumb {
+      background-color: var(--green-thumb-hover);
+    }
+  }
+}
+
+.thumb {
+  padding: 0.5rem;
+  display: block;
+  padding-top: 0.65rem;
+  padding-left: 0.65rem;
+  background-color: inherit;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  color: white;
+  background-color: var(--green-thumb);
+  margin-bottom: 0.2rem;
+}
+
+.down {
+  &.thumb-container {
+    color: var(--red-thumb);
+
+    &:hover {
+      color: var(--red-thumb-hover);
+
+      .thumb {
+        background-color: var(--red-thumb-hover);
+      }
+    }
+  }
+
+  .thumb {
+    background-color: var(--red-thumb);
+  }
+}

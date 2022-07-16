@@ -1,0 +1,122 @@
+.back-button {
+  padding: 1rem 2rem;
+  background-color: var(--main-grey);
+  color: var(--gold);
+  font-size: 1.4rem;
+  border-radius: 20px 40px;
+  inset: 0% 45% 0% 45% round 10px;
+  margin-bottom: 2em;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+}
+
+.joke-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.trending {
+  color: var(--trending-color);
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    display: block;
+    margin-right: 0.5em;
+    width: 5px;
+    aspect-ratio: 1;
+    background-color: var(--trending-color);
+    border-radius: 50%;
+  }
+}
+
+.joke-details {
+  border: 1px solid var(--white-three);
+  background-color: var(--white-two);
+  padding: 1em;
+  border-radius: 4px;
+  flex-basis: 60%;
+  margin-bottom: 1em;
+
+  &__title {
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    font-size: 2rem;
+    font-weight: 600;
+
+    &::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background-color: var(--gold);
+      flex-grow: 1;
+      order: 2;
+      align-self: flex-end;
+      margin: 0 1em;
+    }
+
+    &::after {
+      content: 'NO #1';
+      display: block;
+      color: var(--gold);
+      order: 3;
+    }
+  }
+
+  &__joke {
+    color: var(--main-grey);
+  }
+}
+
+.cta-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-button {
+  background-color: var(--white-two);
+  padding: 0.5em;
+  border: 1px solid var(--gold);
+  margin-right: 1em;
+
+  svg {
+    transition: transform 150ms;
+  }
+
+  &:first-child:hover svg {
+    transform: translateX(-4px);
+  }
+
+  &:nth-child(2):hover svg {
+    transform: translateX(4px);
+  }
+}
+
+.top-ten {
+  margin-left: 1em;
+  border: 1px solid var(--white-three);
+  background-color: var(--white-two);
+  padding: 1em;
+  border-radius: 4px;
+  flex-grow: 1;
+  color: var(--main-grey);
+
+  &__title {
+    margin-bottom: 1em;
+  }
+
+  div {
+    text-decoration: underline;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+  }
+}
