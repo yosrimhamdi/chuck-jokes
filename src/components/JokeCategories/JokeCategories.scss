@@ -1,6 +1,9 @@
 .joke-categories {
   display: flex;
   flex-wrap: wrap;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 2em;
+  margin-bottom: 1em;
 
   &__category {
     flex-grow: 1;

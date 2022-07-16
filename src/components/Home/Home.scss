@@ -3,9 +3,9 @@
 .home {
   margin: 0 auto;
   padding: 2em 1em;
+  background-color: var(--light-grey);
 
   @include breakpoint('medium') {
-    width: 90%;
-    padding: 2em 0em;
+    padding: 2em 5em;
   }
 }
