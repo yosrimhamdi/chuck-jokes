@@ -1,0 +1,15 @@
+@use '../styles/utils/breakpoint' as *;
+
+.container-content {
+  margin: 0 auto;
+  padding: 2em 1em;
+
+  @include breakpoint('medium') {
+    width: 90%;
+    padding: 2em 0;
+  }
+
+  @include breakpoint('large') {
+    width: 80%;
+  }
+}

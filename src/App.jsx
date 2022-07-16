@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from './components/Home/Home';
 import Container from './components/Container';
+import JokeDetails from './components/JokeDetails/JokeDetails';
 
 import './App.scss';
 
@@ -11,6 +12,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/joke/:id" element={<JokeDetails />} />
         </Routes>
       </Container>
     </BrowserRouter>

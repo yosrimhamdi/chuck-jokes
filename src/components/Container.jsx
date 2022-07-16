@@ -4,14 +4,16 @@ import Header from './Header/Header';
 import Hero from './Hero/Hero';
 import Footer from './Footer/Footer';
 
+import './Container.scss';
+
 const Container = ({ children }) => {
   return (
-    <div>
+    <>
       <Header />
       <Hero />
-      <div>{children}</div>
+      <div className="container-content">{children}</div>
       <Footer />
-    </div>
+    </>
   );
 };
 
