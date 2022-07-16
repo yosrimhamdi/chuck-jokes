@@ -1,0 +1,35 @@
+.joke-categories {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__category {
+    flex-grow: 1;
+    background-color: blue;
+    color: var(--white-two);
+    margin-right: 1em;
+    margin-bottom: 1em;
+    padding: 1em 0;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    &:hover {
+      box-shadow: 0 0 4px 1px rgba($color: #000000, $alpha: 0.1);
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
+
+.view-all {
+  background-color: var(--white-two);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+
+  span {
+    margin-right: 2em;
+  }
+}

@@ -1,0 +1,11 @@
+@use '../../styles/utils/breakpoint' as *;
+
+.home {
+  margin: 0 auto;
+  padding: 2em 1em;
+
+  @include breakpoint('medium') {
+    width: 90%;
+    padding: 2em 0em;
+  }
+}
