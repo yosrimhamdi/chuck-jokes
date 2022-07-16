@@ -24,7 +24,7 @@ const Header = () => {
 
     window.addEventListener('resize', () => onWindowResize);
 
-    return window.removeEventListener('reisze', onWindowResize);
+    return window.removeEventListener('resize', onWindowResize);
   }, []);
 
   const headaerLinksClassname = classnames('header__links', {
