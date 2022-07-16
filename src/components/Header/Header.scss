@@ -2,10 +2,19 @@
 
 .header {
   background-color: var(--main-grey);
-  padding-right: 1em;
 
-  @include breakpoint('medium') {
-    padding-right: 5em;
+  &__content {
+    margin: 0 auto;
+    padding-right: 1em;
+
+    @include breakpoint('medium') {
+      width: 90%;
+      padding-right: 0;
+    }
+
+    @include breakpoint('large') {
+      width: 80%;
+    }
   }
 
   &__bars-container {

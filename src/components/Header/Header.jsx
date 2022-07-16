@@ -33,28 +33,33 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="header__bars-container">
-        <FontAwesomeIcon
-          icon={isHeaderLinksVisible ? faXmark : faBars}
-          className="header__bars"
-          onClick={() => setIsHeaderLinksVisible(!isHeaderLinksVisible)}
-        />
+      <div className="header__content">
+        <div className="header__bars-container">
+          <FontAwesomeIcon
+            icon={isHeaderLinksVisible ? faXmark : faBars}
+            className="header__bars"
+            onClick={() => setIsHeaderLinksVisible(!isHeaderLinksVisible)}
+          />
+        </div>
+        <ul className={headaerLinksClassname}>
+          <li>SO FUNKTIONIERT'S</li>
+          <li>SONDERANGEBOTE</li>
+          <li className="header__dropdown">
+            <FontAwesomeIcon icon={faUser} />
+            <span className="header__dropdown-text">MEIN BEREICH</span>
+            <FontAwesomeIcon
+              className="header__caret-down"
+              icon={faCaretDown}
+            />
+            <div className="header__dropdown-content">
+              <div>My published jokes</div>
+              <div>My saved jokes</div>
+              <div>Account Information</div>
+              <div>Publish new joke</div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul className={headaerLinksClassname}>
-        <li>SO FUNKTIONIERT'S</li>
-        <li>SONDERANGEBOTE</li>
-        <li className="header__dropdown">
-          <FontAwesomeIcon icon={faUser} />
-          <span className="header__dropdown-text">MEIN BEREICH</span>
-          <FontAwesomeIcon className="header__caret-down" icon={faCaretDown} />
-          <div className="header__dropdown-content">
-            <div>My published jokes</div>
-            <div>My saved jokes</div>
-            <div>Account Information</div>
-            <div>Publish new joke</div>
-          </div>
-        </li>
-      </ul>
     </header>
   );
 };
