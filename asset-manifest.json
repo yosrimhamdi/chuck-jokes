@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/yosrimhamdi/chuck-jokes/static/css/main.1a18b12c.css",
+    "main.js": "/yosrimhamdi/chuck-jokes/static/js/main.51d4d19a.js",
+    "static/js/787.d6d3c9c9.chunk.js": "/yosrimhamdi/chuck-jokes/static/js/787.d6d3c9c9.chunk.js",
+    "static/media/hero.png": "/yosrimhamdi/chuck-jokes/static/media/hero.d3c96c36fbb8f235a524.png",
+    "static/media/footer.png": "/yosrimhamdi/chuck-jokes/static/media/footer.3085329cece0548574af.png",
+    "index.html": "/yosrimhamdi/chuck-jokes/index.html",
+    "main.1a18b12c.css.map": "/yosrimhamdi/chuck-jokes/static/css/main.1a18b12c.css.map",
+    "main.51d4d19a.js.map": "/yosrimhamdi/chuck-jokes/static/js/main.51d4d19a.js.map",
+    "787.d6d3c9c9.chunk.js.map": "/yosrimhamdi/chuck-jokes/static/js/787.d6d3c9c9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a18b12c.css",
+    "static/js/main.51d4d19a.js"
+  ]
+}
