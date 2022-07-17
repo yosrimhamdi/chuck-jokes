@@ -2,18 +2,24 @@ import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import stringToColor from 'string-to-color';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getCategories, selectCategory } from '../../redux/jokesSlice';
+import Spinner from '../Spinner/Spinner';
 
 import './JokeCategories.scss';
-import { getCategories, selectCategory } from '../../redux/jokesSlice';
-import { useDispatch, useSelector } from 'react-redux';
 
 const JokeCategories = () => {
   const dispatch = useDispatch();
-  const { categories } = useSelector(state => state.jokes);
+  const { categories, isLoadingCategories } = useSelector(state => state.jokes);
 
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
+
+  if (isLoadingCategories) {
+    return <Spinner />;
+  }
 
   const renderedCategories = categories.map((category, i) => (
     <div

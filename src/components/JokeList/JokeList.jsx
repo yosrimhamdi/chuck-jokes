@@ -5,17 +5,24 @@ import ReactPaginate from 'react-paginate';
 import { getJokes } from '../../redux/jokesSlice';
 import SelectedCategory from '../SelectedCategory/SelectedCategory';
 import Joke from './Joke';
+import Spinner from '../Spinner/Spinner';
 
 import './JokeList.scss';
 
 const JokeList = () => {
   const dispatch = useDispatch();
-  const { list, selectedCategory } = useSelector(state => state.jokes);
+  const { list, selectedCategory, isLoadingJokes } = useSelector(
+    state => state.jokes
+  );
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     dispatch(getJokes());
   }, [dispatch]);
+
+  if (isLoadingJokes) {
+    return <Spinner />;
+  }
 
   if (!list) {
     return null;
@@ -41,10 +48,6 @@ const JokeList = () => {
     }
   }
 
-  const onPageChange = event => {
-    console.log(event.selected);
-    setCurrentPage(event.selected);
-  };
   return (
     <div>
       <SelectedCategory />
@@ -56,7 +59,7 @@ const JokeList = () => {
       <ReactPaginate
         breakLabel="..."
         nextLabel=">"
-        onPageChange={onPageChange}
+        onPageChange={event => setCurrentPage(event.selected)}
         pageRangeDisplayed={5}
         pageCount={Math.ceil(list[selectedCategory].length / 10)}
         previousLabel="<"

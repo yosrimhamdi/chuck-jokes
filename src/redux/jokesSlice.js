@@ -10,6 +10,8 @@ const initialState = {
   categories: [],
   selectedCategory: 'money',
   term: '',
+  isLoadingCategories: false,
+  isLoadingJokes: false,
 };
 
 export const getCategories = createAsyncThunk(
@@ -41,6 +43,7 @@ const jokesSlice = createSlice({
   extraReducers: {
     [getCategories.fulfilled]: (state, action) => {
       state.categories = action.payload;
+      state.isLoadingCategories = false;
     },
     [getJokes.fulfilled]: (state, action) => {
       const { result } = action.payload;
@@ -62,6 +65,19 @@ const jokesSlice = createSlice({
       });
 
       state.list = jokes;
+      state.isLoadingJokes = false;
+    },
+    [getJokes.pending]: state => {
+      state.isLoadingJokes = true;
+    },
+    [getJokes.rejected]: state => {
+      state.isLoadingJokes = false;
+    },
+    [getCategories.pending]: state => {
+      state.isLoadingCategories = true;
+    },
+    [getCategories.rejected]: state => {
+      state.isLoadingCategories = false;
     },
   },
 });
