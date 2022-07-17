@@ -9,7 +9,11 @@ const TopTen = () => {
   const topTen = [...jokes].sort((a, b) => b.likes - a.likes).slice(0, 10);
 
   const renderedTopTen = topTen.map(({ value, id }) => (
-    <Link className="top-ten__item" to={`/category/uncategorized/${id}`}>
+    <Link
+      key={id}
+      className="top-ten__item"
+      to={`/category/uncategorized/${id}`}
+    >
       {value.split(' ').slice(0, 4).join(' ')}...
     </Link>
   ));
