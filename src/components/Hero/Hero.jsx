@@ -1,10 +1,12 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setTerm } from '../../redux/jokesSlice';
+import SearchResults from './SearchResults';
 
 import './Hero.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { setTerm } from '../../redux/jokesSlice';
 
 const Hero = () => {
   const { term } = useSelector(state => state.jokes);
@@ -31,6 +33,7 @@ const Hero = () => {
             icon={faMagnifyingGlass}
             className="hero__magnifier"
           />
+          <SearchResults />
         </div>
       </div>
     </div>
