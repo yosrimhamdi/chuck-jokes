@@ -3,8 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import './Hero.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTerm } from '../../redux/jokesSlice';
 
 const Hero = () => {
+  const { term } = useSelector(state => state.jokes);
+  const dispatch = useDispatch();
+
+  const onInputChange = e => {
+    dispatch(setTerm(e.target.value));
+  };
+
   return (
     <div className="hero">
       <div>
@@ -15,6 +24,8 @@ const Hero = () => {
             type="text"
             className="hero__search-input"
             placeholder="How can we make you laugh today?"
+            onChange={onInputChange}
+            value={term}
           />
           <FontAwesomeIcon
             icon={faMagnifyingGlass}

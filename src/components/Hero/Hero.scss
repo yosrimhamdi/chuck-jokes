@@ -30,13 +30,13 @@
   }
 
   &__search-input {
-    background-color: transparent;
+    background-color: white;
     border: 1px solid grey;
     border-radius: 4px;
     width: 100%;
     padding: 1em;
     outline: none;
-    color: white;
+    color: var(--main-grey);
     font-size: 1rem;
   }
 

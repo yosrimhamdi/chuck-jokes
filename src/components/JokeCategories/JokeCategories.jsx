@@ -27,7 +27,11 @@ const JokeCategories = () => {
   ));
 
   renderedCategories.push(
-    <div key={categories.length} className="joke-categories__category view-all">
+    <div
+      onClick={() => dispatch(selectCategory('uncategorized'))}
+      key={categories.length}
+      className="joke-categories__category view-all"
+    >
       <span>view all</span>
       <FontAwesomeIcon icon={faArrowDown} />
     </div>

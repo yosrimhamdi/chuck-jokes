@@ -9,6 +9,7 @@ const initialState = {
   list: null,
   categories: [],
   selectedCategory: 'money',
+  term: '',
 };
 
 export const getCategories = createAsyncThunk(
@@ -32,6 +33,9 @@ const jokesSlice = createSlice({
   reducers: {
     selectCategory: (state, action) => {
       state.selectedCategory = action.payload;
+    },
+    setTerm: (state, action) => {
+      state.term = action.payload;
     },
   },
   extraReducers: {
@@ -62,6 +66,6 @@ const jokesSlice = createSlice({
   },
 });
 
-export const { selectCategory } = jokesSlice.actions;
+export const { selectCategory, setTerm } = jokesSlice.actions;
 
 export default jokesSlice.reducer;
