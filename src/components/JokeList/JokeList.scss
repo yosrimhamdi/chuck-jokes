@@ -39,3 +39,29 @@
     text-align: right;
   }
 }
+
+.pagination-buttons {
+  margin: 0 auto;
+  margin-top: 2em;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  color: #737375;
+
+  li {
+    background-color: #fff;
+  }
+  a {
+    display: block;
+    padding: 0.7em 1em;
+  }
+  a:hover {
+    color: white;
+    background-color: #6c7889;
+    cursor: pointer;
+  }
+  .pagination-active a {
+    color: white;
+    background-color: #494949;
+  }
+}

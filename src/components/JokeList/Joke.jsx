@@ -2,27 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faBolt } from '@fortawesome/free-solid-svg-icons';
-import {
-  uniqueNamesGenerator,
-  adjectives,
-  colors,
-  animals,
-} from 'unique-names-generator';
+import stringToColor from 'string-to-color';
 
 const Joke = ({ joke, selectedCategory }) => {
   const { value, id } = joke;
 
-  const JokeName = uniqueNamesGenerator({
-    dictionaries: [adjectives, animals, colors],
-    length: 3,
-    separator: ' ',
-    style: 'capital',
-  });
-
   return (
     <div className="joke">
       <div className="joke__title">
-        <FontAwesomeIcon icon={faBolt} className="joke__bolt-icon" /> {JokeName}
+        <FontAwesomeIcon
+          icon={faBolt}
+          style={{ marginRight: '1em', color: stringToColor(selectedCategory) }}
+          className="joke__bolt-icon"
+        />
+        {value.split(' ').slice(0, 3).join(' ')}...
       </div>
       <p className="joke__content">{value}</p>
       <div className="joke__button-wrapper">
