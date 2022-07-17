@@ -35,7 +35,7 @@ const JokeDetails = () => {
         <FontAwesomeIcon className="back-button" icon={faAngleLeft} />
       </Link>
       <div className="container">
-        <div>
+        <div className="joke-details-wrapper">
           <div className="joke-details">
             <div className="joke-info">
               <SelectedCategory />

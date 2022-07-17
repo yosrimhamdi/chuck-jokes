@@ -62,14 +62,16 @@
   }
 }
 
+.joke-details-wrapper {
+  flex-grow: 1;
+}
+
 .joke-details {
   border: 1px solid var(--white-three);
   background-color: var(--white-two);
   padding: 1em;
   border-radius: 4px;
-  flex-basis: 60%;
   margin-bottom: 1em;
-  flex-grow: 1;
 
   &__title {
     color: var(--gold);
@@ -148,11 +150,8 @@
   padding: 1em;
   border-radius: 4px;
   color: var(--main-grey);
+  flex-basis: 30%;
   flex-shrink: 0;
-  flex-grow: 1;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 
   &__item {
     display: block;
