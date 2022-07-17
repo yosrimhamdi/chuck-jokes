@@ -26,7 +26,7 @@ const JokeDetails = () => {
             </div>
           </div>
           <div className="cta-container">
-            <div>
+            <div className="thumbs-container">
               <Thumb count={130} />
               <Thumb down count={98} />
             </div>

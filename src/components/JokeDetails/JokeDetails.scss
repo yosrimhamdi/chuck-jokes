@@ -1,3 +1,5 @@
+@use '../../styles/utils/breakpoint' as *;
+
 .back-button {
   padding: 1rem 2rem;
   background-color: var(--main-grey);
@@ -10,7 +12,9 @@
 }
 
 .container {
-  display: flex;
+  @include breakpoint('medium') {
+    display: flex;
+  }
 }
 
 .joke-info {
@@ -80,13 +84,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2em;
+  flex-wrap: wrap;
+}
+
+.thumbs-container {
+  margin-bottom: 1em;
+
+  @include breakpoint('medium') {
+    margin-bottom: 0;
+  }
 }
 
 .nav-button {
   background-color: var(--white-two);
   padding: 0.5em;
   border: 1px solid var(--gold);
-  margin-right: 1em;
+
+  &:not(:last-child) {
+    margin-right: 1em;
+  }
 
   svg {
     transition: transform 150ms;
