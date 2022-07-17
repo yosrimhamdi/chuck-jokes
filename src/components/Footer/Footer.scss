@@ -1,8 +1,12 @@
 @use '../../styles/utils/breakpoint' as *;
 
 .footer {
-  background-image: url('./footer.png');
+  background-image: url('./footer-1440x194.png');
   background-size: cover;
+
+  @include breakpoint('4k') {
+    background-image: url('./footer-4320x582.png');
+  }
 
   &__content {
     margin: 0 auto;

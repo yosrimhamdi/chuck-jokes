@@ -1,12 +1,16 @@
 @use '../../styles/utils/breakpoint' as *;
 
 .hero {
-  background-image: url('./hero.png');
+  background-image: url('./hero-1440x320.png');
   background-size: cover;
   display: grid;
   place-items: center;
   padding: 5em 1em;
   text-align: center;
+
+  @include breakpoint('4k') {
+    background-image: url('./hero-4320x960.png');
+  }
 
   &__title {
     color: var(--gold);
