@@ -1,12 +1,37 @@
 import React from 'react';
+import { Link, matchPath, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  uniqueNamesGenerator,
+  adjectives,
+  colors,
+  animals,
+} from 'unique-names-generator';
+
+import Thumb from './Thumb';
 
 import './JokeDetails.scss';
-import Thumb from './Thumb';
-import { Link } from 'react-router-dom';
+import SelectedCategory from '../SelectedCategory/SelectedCategory';
 
 const JokeDetails = () => {
+  const location = useLocation();
+  const { list } = useSelector(state => state.jokes);
+  const { category, jokeId } = matchPath(
+    '/category/:category/:jokeId',
+    location.pathname
+  ).params;
+
+  const { value } = list[category].find(({ id }) => id === jokeId);
+
+  const JokeName = uniqueNamesGenerator({
+    dictionaries: [adjectives, animals, colors],
+    length: 3,
+    separator: ' ',
+    style: 'capital',
+  });
+
   return (
     <>
       <Link to="/">
@@ -16,14 +41,11 @@ const JokeDetails = () => {
         <div>
           <div className="joke-details">
             <div className="joke-info">
-              <div className="current-category">social jokes</div>
+              <SelectedCategory />
               <div className="trending">TRENDING</div>
             </div>
-            <div className="joke-details__title">the Granny Joke </div>
-            <div className="joke-details__joke">
-              Chuck Norris eats steak for every single meal. Most times he
-              forgets to kill the cow.
-            </div>
+            <div className="joke-details__title">{JokeName}</div>
+            <div className="joke-details__joke">{value}</div>
           </div>
           <div className="cta-container">
             <div className="thumbs-container">
