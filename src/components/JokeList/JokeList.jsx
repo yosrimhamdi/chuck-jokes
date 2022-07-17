@@ -17,8 +17,10 @@ const JokeList = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    dispatch(getJokes());
-  }, [dispatch]);
+    if (!list) {
+      dispatch(getJokes());
+    }
+  }, [dispatch, list]);
 
   if (isLoadingJokes) {
     return <Spinner />;

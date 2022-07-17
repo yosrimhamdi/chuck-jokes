@@ -14,8 +14,10 @@ const JokeCategories = () => {
   const { categories, isLoadingCategories } = useSelector(state => state.jokes);
 
   useEffect(() => {
-    dispatch(getCategories());
-  }, [dispatch]);
+    if (!categories.length) {
+      dispatch(getCategories());
+    }
+  }, [dispatch, categories]);
 
   if (isLoadingCategories) {
     return <Spinner />;
