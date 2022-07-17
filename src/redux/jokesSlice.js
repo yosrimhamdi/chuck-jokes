@@ -49,9 +49,12 @@ const jokesSlice = createSlice({
       });
 
       result.forEach(joke => {
-        jokes[joke.categories[0] ?? UN_CATEGORIZED].push(
-          _.omit(joke, 'categories')
-        );
+        const j = _.omit(joke, 'categories');
+
+        j.likes = Math.floor(Math.random() * 250) + 1;
+        j.dislikes = Math.floor(Math.random() * Math.floor(j.likes / 2));
+
+        jokes[joke.categories[0] ?? UN_CATEGORIZED].push(j);
       });
 
       state.list = jokes;

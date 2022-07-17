@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link, matchPath, useLocation } from 'react-router-dom';
+import { Link, matchPath, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import {
   uniqueNamesGenerator,
   adjectives,
@@ -11,19 +11,29 @@ import {
 } from 'unique-names-generator';
 
 import Thumb from './Thumb';
+import Status from './Status';
+import SelectedCategory from '../SelectedCategory/SelectedCategory';
+import Navigation from './Navigation';
 
 import './JokeDetails.scss';
-import SelectedCategory from '../SelectedCategory/SelectedCategory';
+import TopTen from './TopTen';
 
 const JokeDetails = () => {
   const location = useLocation();
   const { list } = useSelector(state => state.jokes);
+
+  if (!list) {
+    return <Navigate to="/" replace />;
+  }
+
   const { category, jokeId } = matchPath(
     '/category/:category/:jokeId',
     location.pathname
   ).params;
 
-  const { value } = list[category].find(({ id }) => id === jokeId);
+  const { value, likes, dislikes } = list[category].find(
+    ({ id }) => id === jokeId
+  );
 
   const JokeName = uniqueNamesGenerator({
     dictionaries: [adjectives, animals, colors],
@@ -42,36 +52,24 @@ const JokeDetails = () => {
           <div className="joke-details">
             <div className="joke-info">
               <SelectedCategory />
-              <div className="trending">TRENDING</div>
+              <Status likes={likes} />
             </div>
             <div className="joke-details__title">{JokeName}</div>
             <div className="joke-details__joke">{value}</div>
           </div>
           <div className="cta-container">
             <div className="thumbs-container">
-              <Thumb count={130} />
-              <Thumb down count={98} />
+              <Thumb count={likes} />
+              <Thumb down count={dislikes} />
             </div>
-            <div>
-              <Link to={`/joke/2`} className="button nav-button">
-                <FontAwesomeIcon icon={faAngleLeft} /> PREV. JOKE
-              </Link>
-              <Link to={`/joke/2`} className="button nav-button">
-                NEXT JOKE <FontAwesomeIcon icon={faAngleRight} />
-              </Link>
-            </div>
+            <Navigation
+              jokes={list[category]}
+              category={category}
+              selectedJokeId={jokeId}
+            />
           </div>
         </div>
-        <div className="top-ten">
-          <h4 className="top-ten__title">Top 10 jokes this week</h4>
-          <div>Chuck Norris eats steak</div>
-          <div>Chuck Norris eats steak</div>
-          <div>Chuck Norris eats steak</div>
-          <div>Chuck Norris eats steak</div>
-          <div>Chuck Norris eats steak</div>
-          <div>Chuck Norris eats steak</div>
-          <div>Chuck Norris eats steak</div>
-        </div>
+        <TopTen />
       </div>
     </>
   );
