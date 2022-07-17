@@ -3,12 +3,12 @@ import _ from 'lodash';
 
 import joke from '../api/joke';
 
-const UN_CATEGORIZED = 'uncategorized';
+const UNCATEGORIZED = 'uncategorized';
 
 const initialState = {
   list: null,
   categories: [],
-  selectedCategory: 'money',
+  selectedCategory: 'explicit',
   term: '',
   isLoadingCategories: false,
   isLoadingJokes: false,
@@ -49,7 +49,7 @@ const jokesSlice = createSlice({
       const { result } = action.payload;
       const { categories } = current(state);
 
-      const jokes = { [UN_CATEGORIZED]: [] };
+      const jokes = { [UNCATEGORIZED]: [] };
 
       categories.forEach(category => {
         jokes[category] = [];
@@ -61,7 +61,7 @@ const jokesSlice = createSlice({
         j.likes = Math.floor(Math.random() * 250) + 1;
         j.dislikes = Math.floor(Math.random() * Math.floor(j.likes / 2));
 
-        jokes[joke.categories[0] ?? UN_CATEGORIZED].push(j);
+        jokes[joke.categories[0] ?? UNCATEGORIZED].push(j);
       });
 
       state.list = jokes;
