@@ -3,20 +3,14 @@ import { Link, matchPath, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import {
-  uniqueNamesGenerator,
-  adjectives,
-  colors,
-  animals,
-} from 'unique-names-generator';
 
 import Thumb from './Thumb';
 import Status from './Status';
 import SelectedCategory from '../SelectedCategory/SelectedCategory';
 import Navigation from './Navigation';
+import TopTen from './TopTen';
 
 import './JokeDetails.scss';
-import TopTen from './TopTen';
 
 const JokeDetails = () => {
   const location = useLocation();
@@ -35,13 +29,6 @@ const JokeDetails = () => {
     ({ id }) => id === jokeId
   );
 
-  const JokeName = uniqueNamesGenerator({
-    dictionaries: [adjectives, animals, colors],
-    length: 3,
-    separator: ' ',
-    style: 'capital',
-  });
-
   return (
     <>
       <Link to="/">
@@ -54,7 +41,10 @@ const JokeDetails = () => {
               <SelectedCategory />
               <Status likes={likes} />
             </div>
-            <div className="joke-details__title">{JokeName}</div>
+            <div className="joke-details__title">
+              {' '}
+              {value.split(' ').slice(0, 3).join(' ')}...
+            </div>
             <div className="joke-details__joke">{value}</div>
           </div>
           <div className="cta-container">
